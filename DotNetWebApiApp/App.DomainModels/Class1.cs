@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace App.DomainModels
+﻿namespace App.DomainModels
 {
-    public class Class1
+    public class FormModel
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MI { get; set; }
+
     }
 }
