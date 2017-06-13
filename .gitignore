@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DotNetWebApiApp/DotNetWebApiApp/bin
+/DotNetWebApiApp/DotNetWebApiApp/obj/Debug
+/DotNetWebApiApp/App.DomainModels/bin/Debug
+/DotNetWebApiApp/App.DomainModels/obj/Debug
+/DotNetWebApiApp/App.DataAccess/obj/Debug
+
+/DotNetWebApiApp/packages
