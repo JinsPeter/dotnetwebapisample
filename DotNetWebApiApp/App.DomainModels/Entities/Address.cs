@@ -3,18 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace App.DomainModels
 {
     [Table("Address")]
-    public partial class Address
+    public class Address : BaseEntity
     {
-        public int ID { get; set; }
 
         [StringLength(50)]
-        public string Line1 { get; set; }
+        public string Building { get; set; }
 
         [StringLength(50)]
-        public string Line2 { get; set; }
+        public string Street { get; set; }
 
         [StringLength(50)]
-        public string Line3 { get; set; }
+        public string Place { get; set; }
 
         [Required]
         [StringLength(50)]

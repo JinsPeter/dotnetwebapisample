@@ -132,6 +132,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Business\App.Business.csproj">
+      <Project>{3d1f6967-a8f8-426e-b4ec-7bf3bc4b7f76}</Project>
+      <Name>App.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.DomainModels\App.DomainModels.csproj">
       <Project>{fc4532b1-8019-4721-8a24-872eec263dc3}</Project>
       <Name>App.DomainModels</Name>

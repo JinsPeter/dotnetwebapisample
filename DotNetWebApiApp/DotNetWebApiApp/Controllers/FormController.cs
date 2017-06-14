@@ -2,17 +2,22 @@
 using System.Web.Http;
 using DotNetWebApiApp.Models;
 using App.DomainModels;
+using App.Business.Interfaces;
 namespace DotNetWebApiApp.Controllers
 {
     [RoutePrefix("api/Form")]
     public class FormController : BaseController
     {
+        #region Properties
+        private readonly IUserDetailManager userDetailManager;
+        #endregion
+
         [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetAllRecords()
         {
-            var response = new ApiResponse<IEnumerable<FormModel>>();
-            response.Data = new List<FormModel>();
+            var response = new ApiResponse<IEnumerable<UserDetailItem>>();
+            response.Data = new List<UserDetailItem>();
             return Ok(response);
         }
 

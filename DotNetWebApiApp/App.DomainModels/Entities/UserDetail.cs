@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace App.DomainModels
 {
     [Table("UserDetail")]
-    public partial class UserDetail
+    public class UserDetail : BaseEntity
     {
         
         public int ID { get; set; }

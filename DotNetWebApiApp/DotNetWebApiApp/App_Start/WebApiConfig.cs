@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Serialization;
+using App.Business;
 
 namespace DotNetWebApiApp
 {
@@ -30,6 +31,9 @@ namespace DotNetWebApiApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            MapperConfiguration.Configure();
+
+
         }
     }
 }

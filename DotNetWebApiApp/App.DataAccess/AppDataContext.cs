@@ -3,7 +3,6 @@ using System.Data.Entity;
 
 namespace App.DataAccess
 {
-
     public partial class AppDataContext : DbContext
     {
         public AppDataContext()
