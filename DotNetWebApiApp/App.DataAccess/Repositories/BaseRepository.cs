@@ -43,6 +43,24 @@ namespace App.DataAccess.Repositories
             protected set;
         }
         #endregion
+        #region Contructor
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public BaseRepository()
+        {
+            this.Context = new AppDataContext();
+        }
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="context"></param>
+        public BaseRepository(AppDataContext context)
+        {
+            this.Context = context;
+        }
+        #endregion
+
         #region Public Methods
         /// <summary>
         /// Retrieves an entity based on ID
@@ -88,12 +106,25 @@ namespace App.DataAccess.Repositories
             }
         }
         // <summary>
+        /// Selects and removes an enity by Id
+        /// </summary>
+        /// <param name="entity">Entity to remove</param>
+        public void DeleteById(int id)
+        {
+            T entityToDelete = Context.Set<T>().Find(id);
+            Delete(entityToDelete);
+        }
+        // <summary>
         /// Removes an entity
         /// </summary>
         /// <param name="entity">Entity to remove</param>
-        public void Remove(T entity)
+        public void Delete(T entityToDelete)
         {
-            Context.Set<T>().Remove(entity);
+            if (Context.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                Context.Set<T>().Attach(entityToDelete);
+            }
+            Context.Set<T>().Remove(entityToDelete);
         }
         /// <summary>
         /// Save all changes made to the repository

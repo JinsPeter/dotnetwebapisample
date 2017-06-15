@@ -5,6 +5,8 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Serialization;
 using App.Business;
+using DotNetWebApiApp.UnityDependencyResolver;
+using Microsoft.Practices.Unity;
 
 namespace DotNetWebApiApp
 {
@@ -20,7 +22,7 @@ namespace DotNetWebApiApp
 
             // Web API configuration and services
 
-            var cors = new EnableCorsAttribute("*","*","*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 
             // Web API routes
@@ -33,6 +35,9 @@ namespace DotNetWebApiApp
             );
             MapperConfiguration.Configure();
 
+            var container = new UnityContainer();
+            AppDependancyRegistry.Register(container);
+            config.DependencyResolver = new UnityResolver(container);
 
         }
     }

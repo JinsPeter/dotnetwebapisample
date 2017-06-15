@@ -5,19 +5,27 @@ using App.DomainModels;
 using App.Business.Interfaces;
 namespace DotNetWebApiApp.Controllers
 {
-    [RoutePrefix("api/Form")]
-    public class FormController : BaseController
+    [RoutePrefix("api/UserDetail")]
+    public class UserDetailController : BaseController
     {
         #region Properties
         private readonly IUserDetailManager userDetailManager;
         #endregion
 
+        #region Constructors
+        public UserDetailController(IUserDetailManager userDetailMgr)
+        {
+            this.userDetailManager = userDetailMgr;
+        }
+        #endregion
+
+        #region Public Methods
         [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetAllRecords()
         {
             var response = new ApiResponse<IEnumerable<UserDetailItem>>();
-            response.Data = new List<UserDetailItem>();
+            response.Data = userDetailManager.GetAllAvailableUsers();
             return Ok(response);
         }
 
@@ -29,6 +37,6 @@ namespace DotNetWebApiApp.Controllers
             response.Data = 5;
             return Ok();
         }
-
+        #endregion
     }
 }

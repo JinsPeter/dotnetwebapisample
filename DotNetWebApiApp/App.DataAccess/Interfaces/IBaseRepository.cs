@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.DataAccess.Interfaces
 {
@@ -45,7 +42,7 @@ namespace App.DataAccess.Interfaces
         /// Removes an entity
         /// </summary>
         /// <param name="entity">Entity to remove</param>
-        void Remove(T entity);
+        void Delete(T entity);
 
         /// <summary>
         /// Save all changes made to the repository

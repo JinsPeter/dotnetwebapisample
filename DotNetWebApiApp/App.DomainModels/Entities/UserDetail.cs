@@ -7,8 +7,6 @@ namespace App.DomainModels
     public class UserDetail : BaseEntity
     {
         
-        public int ID { get; set; }
-
         [Required]
         [StringLength(50)]
         public string FirstName { get; set; }

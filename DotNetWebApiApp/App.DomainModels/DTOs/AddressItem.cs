@@ -3,7 +3,7 @@ namespace App.DomainModels
 {
     public class AddressItem 
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(200)]
         public string AddressLines { get; set; }
